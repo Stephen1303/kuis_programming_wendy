@@ -26,7 +26,7 @@ const UserCard = (props) => {
         <li>NPM : {props.npm}</li>
         <li>
           My Github :
-          <a href="">{props.github}</a>
+          <a href="https://github.com/Stephen1303/kuis_programming_wendy">{props.github}</a>
         </li>
       </ul>
     </div>
@@ -52,6 +52,25 @@ function Form(){
   );
 }
 
+function UbahBg(){
+  const [bgColor, setBg] = useState("#FFFFFF");
+
+  const generateRandomColor = () => {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`
+  }
+  const handleChangeColor = () => {
+    setBg(generateRandomColor());
+  }
+
+  document.body.style.backgroundColor = bgColor;
+
+  return (
+    <button onClick={handleChangeColor}>
+      Change Background Color
+    </button>
+  );
+}
+
 function App() {
   return (
     <div className="App">
@@ -59,6 +78,7 @@ function App() {
         <Counter />
         <UserCard nama="Wendy Steven" npm="2428240056P" github="My_Github"/>
         <Form />
+        <UbahBg />
       </div>
     </div>
   );
